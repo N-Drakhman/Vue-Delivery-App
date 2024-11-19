@@ -1,0 +1,260 @@
+{
+  "Menu": [
+    {
+      "id": "4otm",
+      "title": "Plum Pie",
+      "category": "Desserts",
+      "description": "Plum pie with buttery pastry, sprinkled with sugar.",
+      "ingredients": [
+        "alface",
+        "cebola",
+        "pão naan",
+        "pepino",
+        "rabanete",
+        "tomate"
+      ],
+      "price": 13.99,
+      "img": "https://i.pinimg.com/originals/05/b1/3f/05b13fb0bc9697230ede7a0d135d924c.png",
+      "quantity": 1
+    },
+    {
+      "id": "5nj5",
+      "title": "Plum Pie",
+      "category": "Desserts",
+      "description": "Plum pie with buttery pastry, sprinkled with sugar.",
+      "ingredients": [
+        "alface",
+        "cebola",
+        "pão naan",
+        "pepino",
+        "rabanete",
+        "tomate"
+      ],
+      "price": 13.99,
+      "img": "https://i.pinimg.com/originals/05/b1/3f/05b13fb0bc9697230ede7a0d135d924c.png",
+      "quantity": 1
+    },
+    {
+      "id": "6qiq",
+      "title": "Peach Pastry",
+      "category": "Desserts",
+      "description": "Delicious peach puff pastry with mint leaves.",
+      "ingredients": [
+        "alface",
+        "cebola",
+        "pão naan",
+        "pepino",
+        "rabanete",
+        "tomate"
+      ],
+      "price": 4.99,
+      "img": "https://i.pinimg.com/originals/05/b1/3f/05b13fb0bc9697230ede7a0d135d924c.png",
+      "quantity": 1
+    },
+    {
+      "id": "fi1r",
+      "title": "Macarons",
+      "category": "Desserts",
+      "description": "Almond flour, butter, egg whites and sugar.",
+      "ingredients": [
+        "alface",
+        "cebola",
+        "pão naan",
+        "pepino",
+        "rabanete",
+        "tomate"
+      ],
+      "price": 13.99,
+      "img": "https://i.pinimg.com/originals/05/b1/3f/05b13fb0bc9697230ede7a0d135d924c.png",
+      "quantity": 1
+    },
+
+    {
+      "id": "m3mu",
+      "title": "Apricot cake",
+      "category": "Desserts",
+      "description": "Fresh apricots in a gluten-free dough.",
+      "ingredients": [
+        "alface",
+        "cebola",
+        "pão naan",
+        "pepino",
+        "rabanete",
+        "tomate"
+      ],
+      "price": 3.55,
+      "img": "https://i.pinimg.com/originals/05/b1/3f/05b13fb0bc9697230ede7a0d135d924c.png",
+      "quantity": 1
+    },
+    {
+      "id": "ob5t",
+      "title": "Espresso",
+      "category": "Drinks",
+      "description": "Creamy coffee made at the perfect temperature and pressure.",
+      "ingredients": [
+        "alface",
+        "cebola",
+        "pão naan",
+        "pepino",
+        "rabanete",
+        "tomate"
+      ],
+      "price": 2.89,
+      "img": "https://i.pinimg.com/originals/05/b1/3f/05b13fb0bc9697230ede7a0d135d924c.png",
+      "quantity": 1
+    },
+    {
+      "id": "pj4q",
+      "title": "Passion fruit juice",
+      "category": "Drinks",
+      "description": "Cold, creamy, sweet passion fruit juice.",
+      "ingredients": [
+        "alface",
+        "cebola",
+        "pão naan",
+        "pepino",
+        "rabanete",
+        "tomate"
+      ],
+      "price": 2.45,
+      "img": "https://i.pinimg.com/originals/05/b1/3f/05b13fb0bc9697230ede7a0d135d924c.png",
+      "quantity": 1
+    },
+    {
+      "id": "rc3a",
+      "title": "Autumn tea  ",
+      "category": "Drinks",
+      "description": "Anise, cinnamon and lemon tea. Feel the Italian autumn.",
+      "ingredients": [
+        "alface",
+        "cebola",
+        "pão naan",
+        "pepino",
+        "rabanete",
+        "tomate"
+      ],
+      "price": 3.55,
+      "img": "https://i.pinimg.com/originals/05/b1/3f/05b13fb0bc9697230ede7a0d135d924c.png",
+      "quantity": 1
+    },
+    {
+      "id": "rtqg",
+      "title": "Cappuccino",
+      "category": "Drinks",
+      "description": "A smooth espresso topped with steamed milk and frothy foam.",
+      "ingredients": [
+        "alface",
+        "cebola",
+        "pão naan",
+        "pepino",
+        "rabanete",
+        "tomate"
+      ],
+      "price": 3.89,
+      "img": "https://i.pinimg.com/originals/05/b1/3f/05b13fb0bc9697230ede7a0d135d924c.png",
+      "quantity": 1
+    },
+    {
+      "id": "s6zk",
+      "title": "Cappuccino",
+      "category": "Drinks",
+      "description": "A smooth espresso topped with steamed milk and frothy foam.",
+      "ingredients": [
+        "alface",
+        "cebola",
+        "pão naan",
+        "pepino",
+        "rabanete",
+        "tomate"
+      ],
+      "price": 3.89,
+      "img": "https://i.pinimg.com/originals/05/b1/3f/05b13fb0bc9697230ede7a0d135d924c.png",
+      "quantity": 1
+    },
+    {
+      "id": "tkv4",
+      "title": "Radish Salad",
+      "category": "Meals",
+      "description": "Radish salad with sweet-sour sauce, and sesame seeds.",
+      "ingredients": [
+        "alface",
+        "cebola",
+        "pão naan",
+        "pepino",
+        "rabanete",
+        "tomate"
+      ],
+      "price": 8.75,
+      "img": "https://i.pinimg.com/originals/05/b1/3f/05b13fb0bc9697230ede7a0d135d924c.png",
+      "quantity": 1
+    },
+    {
+      "id": "vowi",
+      "title": "Spaguetti Gambe",
+      "category": "Meals",
+      "description": "Spaghetti with shrimp, garlic, olive oil, chili, and fresh herbs.",
+      "ingredients": [
+        "alface",
+        "cebola",
+        "pão naan",
+        "pepino",
+        "rabanete",
+        "tomate"
+      ],
+      "price": 13.99,
+      "img": "https://i.pinimg.com/originals/05/b1/3f/05b13fb0bc9697230ede7a0d135d924c.png",
+      "quantity": 1
+    },
+    {
+      "id": "wfjf",
+      "title": "Parma Toast",
+      "category": "Meals",
+      "description": "Parma ham and arugula on naturally leavened bread.",
+      "ingredients": [
+        "alface",
+        "cebola",
+        "pão naan",
+        "pepino",
+        "rabanete",
+        "tomate"
+      ],
+      "price": 4.55,
+      "img": "https://i.pinimg.com/originals/05/b1/3f/05b13fb0bc9697230ede7a0d135d924c.png",
+      "quantity": 1
+    },
+    {
+      "id": "z5x4",
+      "title": "Molla Salad",
+      "category": "Meals",
+      "description": "Molla salad with greens, tangy dressing, and sesame seeds.",
+      "ingredients": [
+        "alface",
+        "cebola",
+        "pão naan",
+        "pepino",
+        "rabanete",
+        "tomate"
+      ],
+      "price": 13.99,
+      "img": "https://i.pinimg.com/originals/05/b1/3f/05b13fb0bc9697230ede7a0d135d924c.png",
+      "quantity": 1
+    },
+    {
+      "id": "zn26 ",
+      "title": "Molla Salad",
+      "category": "Meals",
+      "description": "Molla salad with greens, tangy dressing, and sesame seeds.",
+      "ingredients": [
+        "alface",
+        "cebola",
+        "pão naan",
+        "pepino",
+        "rabanete",
+        "tomate"
+      ],
+      "price": 13.99,
+      "img": "https://i.pinimg.com/originals/05/b1/3f/05b13fb0bc9697230ede7a0d135d924c.png",
+      "quantity": 1
+    }
+  ]
+}
