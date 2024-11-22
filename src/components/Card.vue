@@ -11,46 +11,27 @@ const props = defineProps({
 
 const favorite = ref(false);
 
-const count = ref(props.menuItem.quantity);
-
-const cart = ref(JSON.parse(localStorage.getItem("cart")) || []);
-
 const cartItemQuant = ref();
 const quantity = ref();
 
+const loadItemsFromLocalStorage = () => {
+  store.loadItemsFromLocalStorage;
+};
+
 const formattedCount = computed(() => {
-  cartItemQuant.value = cart.value.find((item) => item.id == props.menuItem.id);
+  cartItemQuant.value = store.cart.find((item) => item.id == props.menuItem.id);
   quantity.value = cartItemQuant.value
     ? String(cartItemQuant.value.quantity)
     : String(props.menuItem.quantity);
   return quantity.value.padStart(2, "0");
 });
 
-function increment() {
-  cart.value = cart.value.map((item) =>
-    item.id == props.cartItem.id
-      ? { ...item, quantity: item.quantity + 1 }
-      : item
-  );
-  store.saveItemsToLocalStorage();
-}
+// const formattedCount = computed(() => {
+//   cartItemQuant.value = store.cart.find((item) => item.id == props.menuItem.id);
+//   quantity.value = String(cartItemQuant.value.quantity);
 
-function decrement() {
-  cart.value = cart.value.map((item) =>
-    item.id == props.cartItem.id
-      ? { ...item, quantity: item.quantity - 1 }
-      : item
-  );
-  store.saveItemsToLocalStorage();
-}
-
-const selectedProduct = computed(() => {
-  return store.menuItems.find((item) => item.id === props.menuItem.id);
-});
-
-const addToCart = () => {
-  store.addToCart(selectedProduct.value);
-};
+//   return quantity.value.padStart(2, "0");
+// });
 </script>
 
 <template>
@@ -83,9 +64,9 @@ const addToCart = () => {
 
     <div class="counter">
       <button
-        @click="decrement"
+        @click="store.counter(menuItem, -1)"
         class="counter-decrement"
-        :disabled="count === 0"
+        :disabled="formattedCount == 0"
       >
         <i class="pi pi-minus"></i>
       </button>
@@ -97,9 +78,9 @@ const addToCart = () => {
       </div>
 
       <button
-        @click="increment"
+        @click="store.counter(menuItem, 1)"
         class="counter-increment"
-        :disabled="count === 99"
+        :disabled="formattedCount > 99"
       >
         <i class="pi pi-plus"></i>
       </button>

@@ -82,7 +82,13 @@ const categoryItems = computed(() => store.itemsByCategory(props.category));
   z-index: 3;
 }
 section {
-  margin-bottom: 48px;
+  & h1 {
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 44.8px;
+    color: #e1e1e6;
+    margin: 48px 0 24px;
+  }
 
   & .mySwiper {
     & .slide {

@@ -68,7 +68,7 @@ const decrement = () => {
         <button
           @click="decrement"
           class="counter-decrement"
-          :disabled="quantity === '0'"
+          :disabled="formattedCount == 0"
         >
           <i class="pi pi-minus"></i>
         </button>
