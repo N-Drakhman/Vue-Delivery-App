@@ -1,0 +1,1 @@
+<template><h1>Thank you for order</h1></template>
