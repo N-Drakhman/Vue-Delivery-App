@@ -10,11 +10,6 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/cart",
-      name: "cart",
-      component: () => import("../views/CartView.vue"),
-    },
-    {
       path: "/dish",
       children: [
         {
@@ -23,6 +18,21 @@ const router = createRouter({
           component: () => import("../views/DishPageView.vue"),
         },
       ],
+    },
+    {
+      path: "/cart",
+      name: "cart",
+      component: () => import("../views/CartView.vue"),
+    },
+    {
+      path: "/thank-you",
+      name: "thank-you",
+      component: () => import("../views/ThankYouPageView.vue"),
+    },
+    {
+      path: "/checkout",
+      name: "checkout",
+      component: () => import("../views/CheckoutView.vue"),
     },
 
     {

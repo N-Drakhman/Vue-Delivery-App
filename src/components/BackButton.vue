@@ -1,31 +1,32 @@
 <script setup>
 import { RouterLink } from "vue-router";
+import { defineProps } from "vue";
+
+const props = {
+  link: String,
+};
 </script>
 
 <template>
-  <section>
-    <div>
-      <RouterLink to="/"><i class="pi pi-angle-left"></i> Back</RouterLink>
-    </div>
-  </section>
+  <!-- <section> -->
+  <div>
+    <RouterLink to="/"><i class="pi pi-angle-left"></i> Back</RouterLink>
+  </div>
+  <!-- </section> -->
 </template>
 
 <style lang="scss" scoped>
-section {
-  width: 100%;
+div * {
+  color: #e1e1e6;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 33.6px;
+  text-align: left;
+  text-decoration: none;
 
-  div * {
-    color: #e1e1e6;
-    font-size: 24px;
-    font-weight: 700;
-    line-height: 33.6px;
-    text-align: left;
-    text-decoration: none;
-
-    i {
-      font-size: 22px;
-      line-height: 24px;
-    }
+  i {
+    font-size: 22px;
+    line-height: 24px;
   }
 }
 

@@ -1,6 +1,7 @@
 <script setup>
 import { useDeliveryStore } from "@/stores/delivery-store";
 import { onBeforeMount, computed } from "vue";
+import { RouterLink } from "vue-router";
 import BackButton from "@/components/BackButton.vue";
 import CartElement from "@/components/CartElement.vue";
 import EmptyCart from "@/components/EmptyCart.vue";
@@ -58,9 +59,11 @@ const totalPrice = computed(() => {
 
       <div class="panel-buttons">
         <div>
-          <BackButton />
+          <BackButton></BackButton>
         </div>
-        <button class="pay-button">Pay Now</button>
+        <RouterLink to="/checkout">
+          <button class="pay-button">Go to checkout</button>
+        </RouterLink>
       </div>
     </div>
   </div>

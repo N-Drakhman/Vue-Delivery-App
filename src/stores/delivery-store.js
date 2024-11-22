@@ -92,6 +92,8 @@ export const useDeliveryStore = defineStore("menu", () => {
         ? (cartItem.quantity = product.quantity)
         : cart.value.push(product);
     }
+
+    console.log("log", product, cart.value);
   };
 
   watch(cart, saveItemsToLocalStorage, { deep: true });
