@@ -8,11 +8,11 @@ const props = {
 </script>
 
 <template>
-  <!-- <section> -->
   <div>
-    <RouterLink to="/"><i class="pi pi-angle-left"></i> Back</RouterLink>
+    <RouterLink to="/"
+      ><i class="pi pi-angle-left"></i><span> Back </span>
+    </RouterLink>
   </div>
-  <!-- </section> -->
 </template>
 
 <style lang="scss" scoped>
@@ -20,13 +20,13 @@ div * {
   color: #e1e1e6;
   font-size: 24px;
   font-weight: 700;
-  line-height: 33.6px;
-  text-align: left;
   text-decoration: none;
+  display: flex;
+  align-items: center;
 
   i {
     font-size: 22px;
-    line-height: 24px;
+    // line-height: 24px;
   }
 }
 
@@ -35,6 +35,16 @@ div * {
     div * {
       font-weight: 500;
     }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  i {
+    font-size: 22px;
+  }
+
+  span {
+    font-size: 20px;
   }
 }
 </style>

@@ -137,8 +137,10 @@ import { RouterLink } from "vue-router";
 
 @media screen and (max-width: 992px) {
   .cart {
-    & span {
-      display: none;
+    & &-button {
+      & span {
+        display: none;
+      }
     }
   }
 }
@@ -183,10 +185,12 @@ import { RouterLink } from "vue-router";
       }
 
       & .cart {
-        max-width: 34px;
-        height: 38px;
-        padding: 0;
-        background-color: #00111a;
+        & .cart-button {
+          max-width: 34px;
+          height: 38px;
+          padding: 0;
+          background: #00111a;
+        }
 
         &:hover {
           background: #142c38;

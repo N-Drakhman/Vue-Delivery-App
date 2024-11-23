@@ -17,14 +17,12 @@ import Footer from "./components/Footer.vue";
 
 <style lang="scss" scoped>
 #app {
-  
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 
   & main {
-    flex: 1; 
-    padding: 1rem;
+    flex: 1;
   }
 }
 </style>

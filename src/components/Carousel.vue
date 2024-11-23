@@ -87,10 +87,11 @@ section {
     font-weight: 500;
     line-height: 44.8px;
     color: #e1e1e6;
-    margin: 48px 0 24px;
   }
 
   & .mySwiper {
+    margin: 48px 0 24px;
+
     & .slide {
       width: 304px;
     }
