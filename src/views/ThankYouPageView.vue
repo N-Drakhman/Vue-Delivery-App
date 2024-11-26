@@ -1,10 +1,16 @@
+<script setup>
+import { RouterLink } from "vue-router";
+</script>
+
 <template>
   <section>
     <div>
       <i class="pi pi-check-circle"></i>
       <h1>Thank You!!!</h1>
       <p>Your order have been taken and is being attended to</p>
-      <button>Continue</button>
+      <RouterLink to="/">
+        <button>Continue</button>
+      </RouterLink>
     </div>
   </section>
 </template>

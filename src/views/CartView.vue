@@ -11,10 +11,10 @@ const store = useDeliveryStore();
 onBeforeMount(() => {
   store.fetchItems();
 
-  const savedCart = JSON.parse(localStorage.getItem("cart"));
-  if (savedCart) {
-    store.setCart(savedCart);
-  }
+  // const savedCart = JSON.parse(localStorage.getItem("cart"));
+  // if (savedCart) {
+  //   store.setCart(savedCart);
+  // }
 });
 
 const totalPrice = computed(() => {

@@ -25,117 +25,115 @@ const totalPrice = computed(() => {
 });
 
 const form = ref({
-  name: "",
-  phone: "",
-  address: "",
+  name: {
+    value: "",
+    validate: function () {
+      this.isValid = this.value.length > 0;
+      return this.isValid;
+    },
+    isValid: true,
+  },
+  phone: {
+    value: "",
+    validate: function () {
+      this.isValid = this.value.length == 15;
+      return this.isValid;
+    },
+    isValid: true,
+  },
+  address: {
+    value: "",
+    validate: function () {
+      this.isValid = this.value.length > 0;
+      return this.isValid;
+    },
+    isValid: true,
+  },
 });
 
-const errors = ref({
-  name: false,
-  phone: false,
-  address: false,
-});
-
-const validateForm = () => {
-  let valid = true;
-  errors.value.name = !/[a-zA-Z]/.test(form.value.name);
-  valid = valid && !errors.value.name;
-
-  errors.value.phone = /^\d+/g.test(form.value.phone);
-  valid = valid && !errors.value.phone;
-
-  errors.value.address = !/[a-zA-Z]/.test(form.value.address);
-  valid = valid && !errors.value.address;
-
-  return valid;
-};
-
-const submitForm = () => {
-  if (validateForm()) {
-    console.log("all good");
-    router.push("/thank-you");
-  } else {
-    console.log("fill the fields");
+const validate = () => {
+  for (let item in form.value) {
+    if (!form.value[item].validate()) {
+      return;
+    }
   }
+  store.clearCart();
+  router.push("/thank-you");
 };
-
-onBeforeMount(() => {
-  const savedCart = JSON.parse(localStorage.getItem("cart"));
-  if (savedCart) {
-    store.setCart(savedCart);
-  }
-});
 </script>
 
 <template>
   <section>
     <div class="main-content">
       <h1>Checkout</h1>
-      <form @submit.prevent="submitForm">
-        <div class="main-checkout">
-          <div class="main-inputs">
-            <label for="name">name</label>
-            <input
-              type="text"
-              id="name"
-              placeholder="name"
-              v-model="form.name"
-              required
-            />
+      <div class="main-checkout">
+        <div class="main-inputs">
+          <label for="name">name</label>
+          <input
+            :style="!form.name.isValid && 'border:red 1px solid'"
+            type="text"
+            id="name"
+            placeholder="name"
+            v-model="form.name.value"
+            required
+          />
 
-            <label for="contact_phone">phone</label>
-            <input
-              type="tel"
-              id="contact_phone"
-              placeholder="phone number"
-              v-model="form.phone"
-              v-mask="'+7 7## ### ####'"
-              required
-            />
+          <label for="contact_phone">phone</label>
+          <input
+            :style="!form.phone.isValid && 'border:red 1px solid'"
+            type="tel"
+            id="contact_phone"
+            placeholder="phone number"
+            v-model="form.phone.value"
+            v-mask="'+7 7## ### ####'"
+            required
+          />
 
-            <label for="address">address</label>
-            <input
-              type="text"
-              id="address"
-              placeholder="Where to deliver your food?"
-              v-model="form.address"
-              required
-            />
-          </div>
-
-          <div class="receipt">
-            <h1>Receipt</h1>
-            <p>icnl. taxes</p>
-
-            <ul>
-              <li>
-                <span> Item subtotal </span>
-                <span> $ {{ subTotal.toFixed(2) }} </span>
-              </li>
-
-              <li>
-                <span> Service fee </span>
-                <span> $ {{ serviceFee.toFixed(2) }}</span>
-              </li>
-
-              <li>
-                <span> Delivery </span>
-                <span> $ {{ deliveryFee }} </span>
-              </li>
-              <li>
-                <span> Total </span>
-                <span> $ {{ totalPrice.toFixed(2) }} </span>
-              </li>
-            </ul>
-          </div>
+          <label for="address">address</label>
+          <input
+            :style="!form.address.isValid && 'border:red 1px solid'"
+            type="text"
+            id="address"
+            placeholder="Where to deliver your food?"
+            v-model="form.address.value"
+            required
+          />
         </div>
 
-        <div class="panel">
-          <BackButton></BackButton>
+        <div class="receipt">
+          <h1>Receipt</h1>
+          <p>icnl. taxes</p>
 
-          <button type="submit" @click="store.clearCart">Pay now</button>
+          <ul>
+            <li>
+              <span> Item subtotal </span>
+              <span> $ {{ subTotal.toFixed(2) }} </span>
+            </li>
+
+            <li>
+              <span> Service fee </span>
+              <span> $ {{ serviceFee.toFixed(2) }}</span>
+            </li>
+
+            <li>
+              <span> Delivery </span>
+              <span> $ {{ deliveryFee }} </span>
+            </li>
+            <li>
+              <span> Total </span>
+              <span> $ {{ totalPrice.toFixed(2) }} </span>
+            </li>
+          </ul>
         </div>
-      </form>
+      </div>
+
+      <div class="panel">
+        <BackButton></BackButton>
+
+        <button type="submit" @click="validate" class="pay-button">
+          Pay now
+        </button>
+      </div>
     </div>
   </section>
 </template>
@@ -242,7 +240,7 @@ section {
       margin-top: 40px;
       align-items: center;
 
-      & button {
+      & .pay-button {
         font-size: 16px;
         max-width: 20vw;
         min-width: 200px;

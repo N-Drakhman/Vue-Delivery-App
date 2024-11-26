@@ -111,14 +111,12 @@ const calcTotalPrice = computed(() => {
 }
 
 .back-button {
-  position: absolute;
-  top: 128px;
-  left: 122px;
+  padding: 24px 0 0 5%;
 }
 
 .card {
   width: calc(100% - 244px);
-  margin: 100px auto 155px;
+  margin: 42px auto 155px;
   // height: 100%;
   background: #000a0f;
   display: flex;
@@ -262,7 +260,7 @@ const calcTotalPrice = computed(() => {
 @media screen and (max-width: 1200px) {
   .card {
     width: calc(100% - 112px);
-    margin: 80px auto 34px;
+    margin: 36px auto 34px;
     gap: 0;
 
     & .menu-item-image {
@@ -281,9 +279,13 @@ const calcTotalPrice = computed(() => {
 }
 
 @media screen and (max-width: 768px) {
+  .back-button {
+    padding: 36px 0 0 5%;
+  }
+
   .card {
     width: calc(100% - 112px);
-    margin: 80px auto 34px;
+    margin: 32px auto 34px;
     flex-direction: column;
     gap: 0;
 
@@ -330,7 +332,7 @@ const calcTotalPrice = computed(() => {
 @media screen and (max-width: 576px) {
   .card {
     width: calc(100% - 112px);
-    margin: 80px auto 34px;
+    margin: 16px auto 34px;
     flex-direction: column;
     gap: 0;
 

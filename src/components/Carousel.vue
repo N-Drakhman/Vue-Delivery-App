@@ -15,7 +15,7 @@ const modules = [Navigation];
 
 const store = useDeliveryStore();
 
-const categoryItems = computed(() => store.itemsByCategory(props.category));
+const categoryItems = computed(() => store.filterItemsByCategory(props.category));
 </script>
 
 <template>

@@ -7,15 +7,11 @@ const props = defineProps({
 });
 
 const store = useDeliveryStore();
-const cart = computed(() => store.cart);
 
 onBeforeMount(() => {
   store.fetchItems();
 
-  const savedCart = JSON.parse(localStorage.getItem("cart"));
-  if (savedCart) {
-    store.setCart(savedCart);
-  }
+  
 });
 
 const removeFromCart = () => {
@@ -26,7 +22,7 @@ const cartItemQuant = ref();
 const quantity = ref();
 
 const formattedCount = computed(() => {
-  cartItemQuant.value = cart.value.find((item) => item.id == props.cartItem.id);
+  cartItemQuant.value = store.cart.find((item) => item.id == props.cartItem.id);
   quantity.value = String(cartItemQuant.value.quantity);
 
   return quantity.value.padStart(2, "0");

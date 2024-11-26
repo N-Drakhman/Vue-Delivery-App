@@ -6,17 +6,12 @@ const store = useDeliveryStore();
 
 const props = defineProps({
   menuItem: Object,
-  Required: true,
 });
 
 const favorite = ref(false);
 
 const cartItemQuant = ref();
 const quantity = ref();
-
-const loadItemsFromLocalStorage = () => {
-  store.loadItemsFromLocalStorage;
-};
 
 const formattedCount = computed(() => {
   cartItemQuant.value = store.cart.find((item) => item.id == props.menuItem.id);
@@ -25,8 +20,6 @@ const formattedCount = computed(() => {
     : String(props.menuItem.quantity);
   return quantity.value.padStart(2, "0");
 });
-
-
 </script>
 
 <template>
