@@ -2,13 +2,14 @@
 import { RouterView } from "vue-router";
 import NavBar from "@/components/NavBar.vue";
 import Footer from "./components/Footer.vue";
+import SearchModal from "./components/SearchModal.vue";
 </script>
 
 <template>
   <div id="app">
     <NavBar />
     <main>
-      <RouterView></RouterView>
+      <RouterView :key="$route.params.id"></RouterView>
     </main>
 
     <Footer></Footer>

@@ -10,11 +10,6 @@ const store = useDeliveryStore();
 
 onBeforeMount(() => {
   store.fetchItems();
-
-  // const savedCart = JSON.parse(localStorage.getItem("cart"));
-  // if (savedCart) {
-  //   store.setCart(savedCart);
-  // }
 });
 
 const totalPrice = computed(() => {
@@ -73,7 +68,7 @@ const totalPrice = computed(() => {
 .cart {
   width: 100%;
   max-width: 820px;
-  margin: 120px auto 80px;
+  margin: 200px auto 80px;
 
   & button {
     cursor: pointer;

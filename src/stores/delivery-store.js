@@ -66,6 +66,21 @@ export const useDeliveryStore = defineStore("menu", () => {
     console.log("log", product, cart.value);
   };
 
+  const isModalOpen = ref(false);
+  const handleModal = () => {
+    isModalOpen.value = !isModalOpen.value;
+  };
+
+  const searchQuerry = ref("");
+  const searchResult = computed(() => {
+    if (searchQuerry.value === "") {
+      return [];
+    }
+    return menuItems.value.filter((item) =>
+      item.title.toLowerCase().includes(searchQuerry.value.toLowerCase())
+    );
+  });
+
   watch(cart, saveItemsToLocalStorage, { deep: true });
 
   return {
@@ -83,5 +98,10 @@ export const useDeliveryStore = defineStore("menu", () => {
     counter,
     watch,
     saveItemsToLocalStorage,
+
+    isModalOpen,
+    searchResult,
+    searchQuerry,
+    handleModal,
   };
 });

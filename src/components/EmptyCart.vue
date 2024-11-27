@@ -11,6 +11,6 @@
 
 <style lang="scss" scoped>
 section {
-  padding: 100px;
+  padding-top: 130px;
 }
 </style>

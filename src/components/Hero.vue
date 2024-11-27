@@ -16,7 +16,7 @@
 <style lang="scss" scoped>
 .hero {
   width: 100%;
-  padding: 164px 0 0;
+  padding: 210px 0 0;
   position: relative;
   margin-bottom: 62px;
 

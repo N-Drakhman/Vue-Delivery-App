@@ -143,7 +143,7 @@ section {
   width: 100%;
 
   & > .main-content {
-    margin: 80px auto;
+    margin: 200px auto 80px;
     width: 80%;
 
     & > h1 {

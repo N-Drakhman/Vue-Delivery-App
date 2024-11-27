@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, defineProps, onBeforeMount, onMounted } from "vue";
+import { ref, computed, defineProps, onBeforeMount } from "vue";
 import { useRoute } from "vue-router";
 import { useDeliveryStore } from "@/stores/delivery-store";
 import BackButton from "@/components/BackButton.vue";
@@ -23,12 +23,6 @@ const formattedCount = computed(() => {
 onBeforeMount(() => {
   store.fetchItem(dishId);
 });
-
-const loadItemsFromLocalStorage = () => {
-  store.loadItemsFromLocalStorage;
-};
-
-onMounted(loadItemsFromLocalStorage);
 
 const props = defineProps({
   menuItem: Object,
@@ -117,7 +111,6 @@ const calcTotalPrice = computed(() => {
 .card {
   width: calc(100% - 244px);
   margin: 42px auto 155px;
-  // height: 100%;
   background: #000a0f;
   display: flex;
   align-items: center;
