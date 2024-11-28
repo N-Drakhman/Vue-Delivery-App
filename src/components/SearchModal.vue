@@ -1,32 +1,8 @@
 <script setup>
 import { useDeliveryStore } from "@/stores/delivery-store";
-import { ref, computed, watch } from "vue";
-import { RouterLink, useRoute } from "vue-router";
+import { RouterLink } from "vue-router";
 
 const store = useDeliveryStore();
-
-// const searchQuerry = ref("");
-
-// const searchResult = computed(() => {
-//   if (searchQuerry.value === "") {
-//     return [];
-//   }
-//   return store.menuItems.filter((item) =>
-//     item.title.toLowerCase().includes(searchQuerry.value.toLowerCase())
-//   );
-// });
-
-// const route = useRoute()
-// const dishId = ref(route.params.id)
-// watch(
-//   () => route.params.id,
-//   (newId) => {
-//     dishId.value = newId;
-//     store.fetchItem(newId);
-//   }
-// );
-
-//
 </script>
 
 <template>
@@ -106,10 +82,6 @@ const store = useDeliveryStore();
     width: 100%;
     height: calc(100vh - 104px);
     z-index: 11;
-
-    // position: fixed;
-    // top: 104px;
-    // left: 0;
 
     display: flex;
     flex-direction: column;

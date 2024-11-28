@@ -76,6 +76,7 @@ export const useDeliveryStore = defineStore("menu", () => {
   };
 
   const searchQuerry = ref("");
+
   const searchResult = computed(() => {
     if (searchQuerry.value === "") {
       return [];

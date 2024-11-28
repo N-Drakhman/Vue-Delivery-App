@@ -1,7 +1,6 @@
 <script setup>
 import BackButton from "@/components/BackButton.vue";
 import { useDeliveryStore } from "@/stores/delivery-store";
-import { storeToRefs } from "pinia";
 import { ref, computed, onBeforeMount } from "vue";
 import { useRouter } from "vue-router";
 

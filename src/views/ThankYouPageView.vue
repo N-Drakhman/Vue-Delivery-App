@@ -22,7 +22,7 @@ section {
   & div {
     width: 80%;
     height: 500px;
-    margin: 100px auto;
+    margin: 200px auto;
     text-align: center;
 
     & i {
