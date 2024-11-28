@@ -9,7 +9,9 @@ export const useDeliveryStore = defineStore("menu", () => {
 
   const fetchItems = async () => {
     try {
-      const response = await axios.get("http://localhost:7000/Menu");
+      const response = await axios.get(
+        "https://enormous-accurate-shop.glitch.me/Menu"
+      );
       menuItems.value = response.data;
     } catch (error) {
       console.error("Error fetching data", error);
@@ -22,7 +24,9 @@ export const useDeliveryStore = defineStore("menu", () => {
 
   const fetchItem = async (dishId) => {
     try {
-      const response = await axios.get(`http://localhost:7000/Menu/${dishId}`);
+      const response = await axios.get(
+        `https://enormous-accurate-shop.glitch.me/Menu/${dishId}`
+      );
       menuItem.value = response.data;
 
       const cartItem = cart.value.find((item) => item.id == menuItem.value.id);
