@@ -105,7 +105,7 @@ const calcTotalPrice = computed(() => {
 }
 
 .back-button {
-  padding: 24px 0 0 5%;
+  padding: 80px 0 0 5%;
 }
 
 .card {
