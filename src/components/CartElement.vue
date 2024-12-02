@@ -8,21 +8,12 @@ const props = defineProps({
 
 const store = useDeliveryStore();
 
-onBeforeMount(() => {
-  store.fetchItems();
-
-  
-});
-
-const removeFromCart = () => {
-  store.removeFromCart(props.cartItem.id);
-};
-
-const cartItemQuant = ref();
 const quantity = ref();
 
 const formattedCount = computed(() => {
-  cartItemQuant.value = store.cart.find((item) => item.id == props.cartItem.id);
+  const cartItemQuant = ref(
+    store.cart.find((item) => item.id == props.cartItem.id)
+  );
   quantity.value = String(cartItemQuant.value.quantity);
 
   return quantity.value.padStart(2, "0");
@@ -66,7 +57,7 @@ const calcTotalPrice = computed(() => {
     </div>
 
     <h3 class="item-price">${{ calcTotalPrice }}</h3>
-    <button @click="removeFromCart">
+    <button @click="store.removeFromCart(props.cartItem.id)">
       <i class="pi pi-times-circle"></i>
     </button>
   </div>

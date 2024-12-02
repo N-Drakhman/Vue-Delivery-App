@@ -10,11 +10,12 @@ const props = defineProps({
 
 const favorite = ref(false);
 
-const cartItemQuant = ref();
 const quantity = ref();
 
 const formattedCount = computed(() => {
-  cartItemQuant.value = store.cart.find((item) => item.id == props.menuItem.id);
+  const cartItemQuant = ref(
+    store.cart.find((item) => item.id == props.menuItem.id)
+  );
   quantity.value = cartItemQuant.value
     ? String(cartItemQuant.value.quantity)
     : String(props.menuItem.quantity);

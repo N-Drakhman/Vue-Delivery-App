@@ -8,11 +8,12 @@ const dishId = route.params.id;
 
 const store = useDeliveryStore();
 
-const cartItemQuant = ref();
 const quantity = ref();
 
 const formattedCount = computed(() => {
-  cartItemQuant.value = store.cart.find((item) => item.id == store.menuItem.id);
+  const cartItemQuant = ref(
+    store.cart.find((item) => item.id == store.menuItem.id)
+  );
   quantity.value = cartItemQuant.value
     ? String(cartItemQuant.value.quantity)
     : String(store.menuItem.quantity);
@@ -106,6 +107,7 @@ const calcTotalPrice = computed(() => {
 
 .back-button {
   padding: 80px 0 0 5%;
+  z-index: 30;
 }
 
 .card {
