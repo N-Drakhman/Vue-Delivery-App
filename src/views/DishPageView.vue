@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed, defineProps, onBeforeMount, onMounted } from "vue";
+import { ref, computed, defineProps, onBeforeMount } from "vue";
 import { useRoute } from "vue-router";
 import { useDeliveryStore } from "@/stores/delivery-store";
 import BackButton from "@/components/BackButton.vue";
@@ -8,11 +8,12 @@ const dishId = route.params.id;
 
 const store = useDeliveryStore();
 
-const cartItemQuant = ref();
 const quantity = ref();
 
 const formattedCount = computed(() => {
-  cartItemQuant.value = store.cart.find((item) => item.id == store.menuItem.id);
+  const cartItemQuant = ref(
+    store.cart.find((item) => item.id == store.menuItem.id)
+  );
   quantity.value = cartItemQuant.value
     ? String(cartItemQuant.value.quantity)
     : String(store.menuItem.quantity);
@@ -23,12 +24,6 @@ const formattedCount = computed(() => {
 onBeforeMount(() => {
   store.fetchItem(dishId);
 });
-
-const loadItemsFromLocalStorage = () => {
-  store.loadItemsFromLocalStorage;
-};
-
-onMounted(loadItemsFromLocalStorage);
 
 const props = defineProps({
   menuItem: Object,
@@ -111,15 +106,13 @@ const calcTotalPrice = computed(() => {
 }
 
 .back-button {
-  position: absolute;
-  top: 128px;
-  left: 122px;
+  padding: 80px 0 0 5%;
+  z-index: 30;
 }
 
 .card {
   width: calc(100% - 244px);
-  margin: 100px auto 155px;
-  // height: 100%;
+  margin: 42px auto 155px;
   background: #000a0f;
   display: flex;
   align-items: center;
@@ -262,7 +255,7 @@ const calcTotalPrice = computed(() => {
 @media screen and (max-width: 1200px) {
   .card {
     width: calc(100% - 112px);
-    margin: 80px auto 34px;
+    margin: 36px auto 34px;
     gap: 0;
 
     & .menu-item-image {
@@ -281,9 +274,13 @@ const calcTotalPrice = computed(() => {
 }
 
 @media screen and (max-width: 768px) {
+  .back-button {
+    padding: 36px 0 0 5%;
+  }
+
   .card {
     width: calc(100% - 112px);
-    margin: 80px auto 34px;
+    margin: 32px auto 34px;
     flex-direction: column;
     gap: 0;
 
@@ -330,7 +327,7 @@ const calcTotalPrice = computed(() => {
 @media screen and (max-width: 576px) {
   .card {
     width: calc(100% - 112px);
-    margin: 80px auto 34px;
+    margin: 16px auto 34px;
     flex-direction: column;
     gap: 0;
 

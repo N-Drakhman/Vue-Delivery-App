@@ -1,40 +1,48 @@
 <script setup>
-import { RouterLink } from "vue-router";
-import { defineProps } from "vue";
+import { useRouter } from "vue-router";
 
-const props = {
-  link: String,
+const router = useRouter();
+const goBack = () => {
+  router.back();
 };
 </script>
 
 <template>
-  <!-- <section> -->
-  <div>
-    <RouterLink to="/"><i class="pi pi-angle-left"></i> Back</RouterLink>
-  </div>
-  <!-- </section> -->
+  <button class="back-button" @click="goBack">
+    <i class="pi pi-angle-left"></i><span> Back </span>
+  </button>
 </template>
 
 <style lang="scss" scoped>
-div * {
+.back-button {
   color: #e1e1e6;
   font-size: 24px;
   font-weight: 700;
-  line-height: 33.6px;
-  text-align: left;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
+  cursor: pointer;
 
-  i {
+  & i {
     font-size: 22px;
-    line-height: 24px;
   }
 }
 
 @media screen and (max-width: 756px) {
-  section {
-    div * {
-      font-weight: 500;
-    }
+  .back-button {
+    font-weight: 500;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  i {
+    font-size: 22px;
+  }
+
+  span {
+    font-size: 20px;
   }
 }
 </style>

@@ -10,5 +10,7 @@
 </template>
 
 <style lang="scss" scoped>
-
+section {
+  padding-top: 130px;
+}
 </style>

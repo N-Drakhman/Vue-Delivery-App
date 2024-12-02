@@ -1,39 +1,19 @@
 <script setup>
 import { useDeliveryStore } from "@/stores/delivery-store";
-import {
-  onBeforeMount,
-  ref,
-  computed,
-  defineProps,
-  onMounted,
-  watch,
-} from "vue";
+import { onBeforeMount, ref, computed, defineProps } from "vue";
 
 const props = defineProps({
   cartItem: Object,
 });
 
 const store = useDeliveryStore();
-const cart = computed(() => store.cart);
 
-onBeforeMount(() => {
-  store.fetchItems();
-
-  const savedCart = JSON.parse(localStorage.getItem("cart"));
-  if (savedCart) {
-    store.setCart(savedCart);
-  }
-});
-
-const removeFromCart = () => {
-  store.removeFromCart(props.cartItem.id);
-};
-
-const cartItemQuant = ref();
 const quantity = ref();
 
 const formattedCount = computed(() => {
-  cartItemQuant.value = cart.value.find((item) => item.id == props.cartItem.id);
+  const cartItemQuant = ref(
+    store.cart.find((item) => item.id == props.cartItem.id)
+  );
   quantity.value = String(cartItemQuant.value.quantity);
 
   return quantity.value.padStart(2, "0");
@@ -43,15 +23,6 @@ const calcTotalPrice = computed(() => {
   const cartItemTotal = props.cartItem.quantity * props.cartItem.price;
   return cartItemTotal.toFixed(2);
 });
-
-const incerement = () => {
-  store.counter(props.cartItem, 1);
-  console.log(props.cartItem.quantity);
-};
-
-const decrement = () => {
-  store.counter(props.cartItem, -1);
-};
 </script>
 <template>
   <div class="cart-item">
@@ -66,7 +37,7 @@ const decrement = () => {
     <div class="counter">
       <div class="counter-panel">
         <button
-          @click="decrement"
+          @click="store.counter(props.cartItem, -1)"
           class="counter-decrement"
           :disabled="formattedCount == 0"
         >
@@ -86,7 +57,7 @@ const decrement = () => {
     </div>
 
     <h3 class="item-price">${{ calcTotalPrice }}</h3>
-    <button @click="removeFromCart">
+    <button @click="store.removeFromCart(props.cartItem.id)">
       <i class="pi pi-times-circle"></i>
     </button>
   </div>
@@ -116,6 +87,7 @@ button {
 
     & .item-details {
       min-width: 200px;
+
       & h1 {
         color: #e1e1e6;
         font-size: 22px;
@@ -221,6 +193,102 @@ button {
     & i {
       color: #ebebeba3;
       font-size: 32px;
+    }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .cart-item {
+    & .item-info {
+      & .item-details {
+        min-width: 165px;
+
+        & h1 {
+          font-size: 18px;
+        }
+        & p {
+          font-size: 14px;
+        }
+      }
+    }
+
+    & .item-price {
+      font-size: 18px;
+    }
+  }
+}
+
+@media screen and (max-width: 786px) {
+  .cart-item {
+    position: relative;
+    & > button {
+      display: none;
+    }
+    & .item-info {
+      & .item-details {
+        padding-bottom: 28px;
+        & p {
+          font-size: 12px;
+        }
+      }
+    }
+
+    & .counter .counter-panel {
+      gap: 5px;
+
+      & button i {
+        font-size: 14px;
+      }
+
+      & div {
+        font-size: 18px;
+      }
+    }
+
+    & .item-price {
+      position: absolute;
+      top: 80px;
+      left: 124px;
+      font-size: 14px;
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .cart-item {
+    padding: 20px;
+    & .item-info {
+      & .item-details {
+        padding-bottom: 28px;
+        & p {
+          font-size: 12px;
+        }
+      }
+    }
+
+    & .counter .counter-panel {
+      gap: 5px;
+
+      & button i {
+        font-size: 14px;
+      }
+
+      & div {
+        font-size: 18px;
+      }
+    }
+
+    & .item-price {
+      position: absolute;
+      top: 80px;
+      left: 124px;
+      font-size: 14px;
+    }
+
+    & .counter {
+      position: absolute;
+      right: 15px;
+      top: 70px;
     }
   }
 }
