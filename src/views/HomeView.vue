@@ -15,12 +15,6 @@ import Carousel from "@/components/Carousel.vue";
 </template>
 
 <style lang="scss" scoped>
-.slide {
-  width: 300px;
-  height: 400px;
-  background: white;
-}
-
 main {
   margin: 0 124px;
 }
@@ -33,6 +27,12 @@ main {
 @media screen and (max-width: 768) {
   main {
     margin: 0 44px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  main {
+    margin: 0 16px 0 36px;
   }
 }
 </style>

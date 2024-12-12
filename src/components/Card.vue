@@ -6,32 +6,21 @@ const store = useDeliveryStore();
 
 const props = defineProps({
   menuItem: Object,
-  Required: true,
 });
 
 const favorite = ref(false);
 
-const cartItemQuant = ref();
 const quantity = ref();
 
-const loadItemsFromLocalStorage = () => {
-  store.loadItemsFromLocalStorage;
-};
-
 const formattedCount = computed(() => {
-  cartItemQuant.value = store.cart.find((item) => item.id == props.menuItem.id);
+  const cartItemQuant = ref(
+    store.cart.find((item) => item.id == props.menuItem.id)
+  );
   quantity.value = cartItemQuant.value
     ? String(cartItemQuant.value.quantity)
     : String(props.menuItem.quantity);
   return quantity.value.padStart(2, "0");
 });
-
-// const formattedCount = computed(() => {
-//   cartItemQuant.value = store.cart.find((item) => item.id == props.menuItem.id);
-//   quantity.value = String(cartItemQuant.value.quantity);
-
-//   return quantity.value.padStart(2, "0");
-// });
 </script>
 
 <template>
