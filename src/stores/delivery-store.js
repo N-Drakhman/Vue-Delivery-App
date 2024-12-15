@@ -18,8 +18,16 @@ export const useDeliveryStore = defineStore("menu", () => {
     }
   };
 
+  const loadCartFromLocalStorage = () => {
+    const savedCart = localStorage.getItem("cart");
+    if (savedCart) {
+      cart.value = JSON.parse(savedCart);
+    }
+  };
+
   onBeforeMount(() => {
     fetchItems();
+    loadCartFromLocalStorage();
   });
 
   const fetchItem = async (dishId) => {
@@ -85,6 +93,8 @@ export const useDeliveryStore = defineStore("menu", () => {
       item.title.toLowerCase().includes(searchQuerry.value.toLowerCase())
     );
   });
+
+
 
   watch(cart, saveItemsToLocalStorage, { deep: true });
 
